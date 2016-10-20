@@ -5,27 +5,87 @@
 	<title>测试</title>
 </head>
 <style>
-	ul{
-		width: 600px;
+	html{
+		box-sizing: border-box;
+	}
+	*,*:before,*:after{
+		box-sizing: inherit;
+		padding: 0;
+		margin: 0;
+	}
+	body{
+		width: 1280px;
+		height: 100%;
 		margin: 0 auto;
+		font-size: 24px;
+		color: #323232;
+		font-family: "SimHei","黑体 ";
+		line-height: 40px;
+	}
+	p{
+		height: 40px;
+	}
+	ul{
+		width: 800px;
+		margin: 20px auto;
 		overflow: hidden;
+		list-style: none;
+		text-align: center;
 	}
-	li{
+	.lian li{
+		float: left;
+		width: 200px;
+		height: 40px;
+		background: #9BA646;		
+	}
+	.lian li:first-child ~ li{
+		border-left: 1px solid #666;
+	}
+	.not li{
 		width: 100%;
-		height: 100px;		
+		float: left;
+		height: 40px;
+		background: #FFFDCC;
 	}
-	ul li:first-child ~ li{
-		border-bottom: 1px solid #666;
+	.not li:not(:last-child) {
+		border-bottom: 1px solid #ccc;
+	}
+	.center li{
+		float: left;
+		display: none;
+		width: 200px;
+		height: 40px;
+		background: #7F5956;
+	}
+	/* 只显示前四条数据 */
+	.center li:nth-child(-n+4) {
+		display: block;
 	}
 </style>
 <body>
-<ul>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
+<p>测试~连接符 li:first-child ~ li 除了第一个li 其他都加一个左边框</p>
+<ul class="lian">
+	<li>首页</li>
+	<li>通讯录</li>
+	<li>最后</li>
+	<li>其他</li>
+</ul>
+<p>测试~not li:not(:last-child)除了最后一个li 其他都加下边框</p>
+<ul class="not">
+	<li>一条数据</li>
+	<li>一条数据</li>
+	<li>一条数据</li>
+	<li>一条数据</li>
+	<li>一条数据</li>
+</ul>
+<p>测试~负的nth-child(-n+4) 只显示前四条数据(事实上有6条数据)</p>
+<ul class="center">
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+	<li>6</li>
 </ul>
 </body>
 </html>
